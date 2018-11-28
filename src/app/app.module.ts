@@ -3,14 +3,26 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { WallComponent } from './wall/wall.component';
+
+import { HttpClientModule }    from '@angular/common/http';
+import { MenuComponent } from './components/menu/menu.component';
+import { DetailpostComponent} from './detailpost/detailpost.component';
+import { from } from 'rxjs';
+
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    WallComponent,
+    MenuComponent,
+    DetailpostComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

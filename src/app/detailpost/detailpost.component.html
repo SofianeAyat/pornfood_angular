@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <!--- Include the above in your HEAD tag -->
+    
+    <title>Ma page de test</title>
+  </head>
+  <body>
+    <div class="row featurette" class="le_poste">
+        <div class="row-md-12">
+            <h2>{{post.title}}</h2>
+            <p>{{post.author}}</p>
+            <p>{{post.body}}</p>
+            <div class="col-md-5" class="photo">
+                <img class="rounded-circle" src="https://source.unsplash.com/random" alt="Generic placeholder image" width="500" height="500">
+            </div>
+        </div>
+    </div>
+            
+    <div class="publier">     
+    <form class="js-validate2">
+        <div class="js-form-message mb-3">
+            <div class="js-focus-state input-group input-group form">
+                <input type="text" class="form-control form__input" name="author" required="" placeholder="Enter your name" aria-label="Enter your author" #authorCommentaire>
+            </div>
+        </div>
+            
+        <div class="js-form-message mb-3">
+            <div class="js-focus-state input-group input-group form">
+                <textarea class="form-control form__input" name="body" required="" placeholder="Enter your comment" aria-label="Enter your comment" #bodyCommentaire></textarea>
+            </div>
+        </div>
+        <button class="btn btn-block btn-primary" (click)="addCommentaire(bodyCommentaire.value, authorCommentaire.value);
+        bodyCommentaire.value = ''; authorCommentaire.value ='';">Envoyer</button>
+    </form>
+    </div>
+
+    <div *ngFor ="let unCommentaire of commentaire" class="le_commentaire">             
+        <div class="container">
+            <div class="col-md-15">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <section class="post-heading">
+                            <div class="row">
+                                <div class="col-md-11">
+                                    <div class="media">
+                                    <div class="media-left">
+                                        <a href="#">
+                                        <img class="media-object photo-profile" src="http://0.gravatar.com/avatar/38d618563e55e6082adf4c8f8c13f3e4?s=40&d=mm&r=g" width="40" height="40" alt="...">
+                                        </a>
+                                    </div>
+                                    <div class="media-body">
+                                        <a href="#" class="anchor-username"><h4 class="media-heading">{{unCommentaire.author}}</h4></a> 
+                                        <a href="#" class="anchor-time">51 mins</a>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>             
+                        </section>
+                        <section class="post-body">
+                                <p>{{unCommentaire.body}}</p>
+                        </section>
+                        <section class="post-footer">
+                            <hr>
+                            <div class="post-footer-option container">
+                                <ul class="list-unstyled">
+                                    <li><button class="glyphicon glyphicon-thumbs-up" (click)="addLike(unCommentaire.id);">   j'aime {{unCommentaire.nblike}} </button></li>
+                                    <li><a href="#"><i class="glyphicon glyphicon-comment"></i> Comment</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                    </div>
+                </div>   
+            </div>
+        </div>
+    </div>
+  </body>
+</html>
+
+

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    
+    <title>Ma page de test</title>
+  </head>
+  <body>
+    <!--********************************Formulaire*************************************-->
+    <div class="jumbotron p-md-5 text-white rounded bg-dark">
+      <div class="publier">
+          <form class="js-validate2">
+              <div class="mb-4">
+                <h2 class="h4">Qu'avez vous de bon à partager</h2>
+              </div>
+
+            <!-- Input -->
+            <div class="js-form-message mb-3">
+                <div class="js-focus-state input-group input-group form">
+                  <input type="text" class="form-control form__input" name="title" required="" placeholder="Enter the title" aria-label="Enter the title" #titlePost >
+                </div>
+            </div>
+              <!-- End Input -->
+
+              <!-- Input -->
+              <div class="js-form-message mb-3">
+                <div class="js-focus-state input-group input-group form">
+                  <input type="text" class="form-control form__input" name="name" required="" placeholder="Enter your name" aria-label="Enter your name" #authorPost>
+                </div>
+              </div>
+              <!-- End Input -->
+
+              <!-- Input -->
+              <div class="js-form-message mb-3">
+                <div class="js-focus-state input-group input-group form">
+                  <textarea type="text" class="form-control form__input" name="body" required="" placeholder="Enter your recipe" aria-label="Enter your recipe" #bodyPost></textarea>
+                </div>
+              </div>
+              <!-- End Input -->
+
+              <button class="btn btn-block btn-primary" (click)="addPost(titlePost.value, bodyPost.value, authorPost.value);
+              titlePost.value = ''; bodyPost.value = ''; authorPost.value ='';">Envoyer</button>
+            </form>
+      </div>
+    </div>
+ <!--**************************************************************************-->
+    <div *ngFor ="let post of posts" class="le_poste">      
+      <div class="row featurette">
+        <div class="col-md-7">
+          <h2><a routerLink="/detailpost/{{post.id}}">{{post.title}}</a></h2>
+          <p>{{post.author}}</p>
+          <p>{{post.body}}</p>
+          <p>{{post.nbetoile}}</p> <!--faire en sorte d'afficher la moyenne-->
+        </div>
+
+        <div class="col-md-4">
+          <img class="rounded-circle" src="https://source.unsplash.com/random" alt="Generic placeholder image" width="500" height="500">
+        </div>
+      </div>
+
+      <div class="note_etoile">
+        <div class="etoile">
+           
+          <i class="far fa-star fa-2x"><input type="radio" name="etoile" id='etoile1' (click)="addPost(nbetoilePost.value);
+            nbetoilePost.value = '1';"><label for="etoile1" #nbetoile></label></i>
+          
+          <i class="far fa-star fa-2x"><input type="radio" name="etoile" id='etoile2' (click)="addPost(nbetoilePost.value);
+            nbetoilePost.value = '2';"><label for="etoile2" #nbetoile></label></i>
+          
+          <i class="far fa-star fa-2x"><input type="radio" name="etoile" id='etoile3' (click)="addPost(nbetoilePost.value);
+            nbetoilePost.value = '3';"><label for="etoile3" #nbetoile></label></i>
+          
+          <i class="far fa-star fa-2x"><input type="radio" name="etoile" id='etoile4' (click)="addPost(nbetoilePost.value);
+            nbetoilePost.value = '4';"><label for="etoile4" #nbetoile></label></i>
+          
+          <i class="far fa-star fa-2x"><input type="radio" name="etoile" id='etoile5' (click)="addPost(nbetoilePost.value);
+            nbetoilePost.value = '5';"><label for="etoile5" #nbetoile></label></i>
+          
+        </div> 
+      </div>
+      <hr class="featurette-divider">  
+    </div>
+
+  </body>
+</html>
+
+

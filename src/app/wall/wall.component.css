@@ -1,0 +1,54 @@
+.publier
+{
+    text-align: center;
+    margin-left: 30%;  
+    margin-right: 30%;
+}
+/*le bloc poste*/
+.le_poste
+{
+    margin-bottom: 1.5rem;
+    text-align: center;    
+}
+.le_poste
+{
+    margin-left: 20%;  
+    margin-right: 30%;
+}
+/*les etoile sous le poste*/
+/* Par défaut, une étoile est en gris,
+   avec un padding et un curseur en forme de main. */
+
+/* Si elle porte en plus la classe '.gold', elle sera en jaune. */
+.fa-star.gold {
+	color: #ffdc0f;
+}
+
+
+.etoile input{
+	display: none;
+}
+	/* Le groupe '.stars' positionne les étoiles
+		 les unes à côté des autres sans espacements. */
+	.etoile {
+		display: inline-flex;
+		justify-content: center;
+		font-size: 15px;
+	}
+
+	/**
+	 * Et là opère la magie du ':hover' !
+	 */
+
+	/* A l'état :hover sur le parent '.rating',
+		 on force TOUTES les étoiles à passer en jaune. */
+	.etoile:hover .fa-star {
+		color: #ffdc0f;
+	}
+	/* Et si la souris survole une étoile en particulier,
+		 on sélectionne toutes les étoiles qui sont APRÈS celle-ci
+		 grâce à l'opérateur '~' et on les force en GRIS */
+	.etoile .fa-star:hover ~ .fa-star {
+		color: gray;
+	}
+
